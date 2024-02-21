@@ -1,4 +1,5 @@
-FROM openjdk:17-alpine
+FROM maven:3.8.1-jdk-17 AS build
+
 
 WORKDIR /app
 
