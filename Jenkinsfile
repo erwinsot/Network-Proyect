@@ -14,18 +14,7 @@ pipeline {
                     
                 }
             }
-        }
-        
-        stage('Test') {
-            steps {
-                // Add your test steps here
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                // Add your deployment steps here
-            }
-        }
+        }      
+       
     }
 }
