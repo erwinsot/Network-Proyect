@@ -46,6 +46,14 @@ services:
       - POSTGRES_DB=alertdb
     restart: always
   
+  provideralert:
+    build:
+      context: ./
+      dockerfile: ./AlertGlideProvider/Dockerfile
+    ports:
+      - "8081:8081"
+    env_file: ./AlertGlideProvider/.env
+
   
       
 
