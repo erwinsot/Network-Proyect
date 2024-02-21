@@ -5,8 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 // Aquí irían los pasos de construcción de tu proyecto
-                sh 'docker version'
                 echo 'Construyendo...'
+                sh 'docker version'
+                sh 'docker-compose version'
+                sh 'docker info'
+                
                 // Ejemplo de un paso de construcción real:
                 // sh 'npm install'
             }
