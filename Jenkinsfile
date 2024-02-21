@@ -18,6 +18,7 @@ pipeline {
             steps {
                 // Aquí irían los pasos de prueba de tu proyecto
                 sh 'docker-compose up -d'
+                sh 'docker ps'
                 // Ejemplo de un paso de prueba real:
                 // sh 'npm test'
             }
