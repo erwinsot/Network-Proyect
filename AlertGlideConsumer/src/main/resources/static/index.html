@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Client</title>
+    <script>
+        // Conectar al WebSocket del servidor
+        const socket = new WebSocket('ws://localhost:8080/alert');
+
+        // Función para manejar los mensajes entrantes
+        socket.onmessage = function(event) {
+            // Mostrar el mensaje recibido en la consola
+            console.log('Mensaje recibido:', event.data);
+
+            // Mostrar el mensaje recibido en el área de texto
+            const messageArea = document.getElementById('messageArea');
+            messageArea.innerHTML += event.data + '<br>';
+        };
+
+        // Función para enviar un mensaje al WebSocket
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value;
+            socket.send(message);
+            messageInput.value = ''; // Limpiar el área de texto después de enviar el mensaje
+        }
+    </script>
+</head>
+<body>
+<h1>WebSocket Client</h1>
+<div id="messageArea"></div>
+<input type="text" id="messageInput">
+<button onclick="sendMessage()">Enviar</button>
+</body>
+</html>
+```

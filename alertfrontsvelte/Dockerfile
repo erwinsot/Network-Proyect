@@ -1,0 +1,23 @@
+FROM node:lts-alpine
+
+# Change our current working directory
+WORKDIR /app
+
+# Copy over `package.json` and lock files to optimize the build process
+COPY  . .
+ 
+RUN npm install
+
+RUN npm run build
+
+RUN npm -g install http-server
+
+# Expose port
+ENV PORT 5173
+EXPOSE 5173
+
+CMD [ "http-server", "dist", "-p", "5173" ]
+
+
+
+

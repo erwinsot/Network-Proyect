@@ -1,0 +1,15 @@
+FROM openjdk:17-alpine
+
+WORKDIR /app
+
+COPY ./AlertGlideConsumer .
+
+RUN ./mvnw clean package -DskipTests
+
+ENV PORT 5151
+EXPOSE $PORT
+
+RUN mkdir ./logs
+
+ENTRYPOINT ["java", "-jar", "./target/AlertGlideConsumer-0.0.1-SNAPSHOT.jar"]
+
