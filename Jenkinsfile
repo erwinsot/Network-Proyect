@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Aquí irían los pasos de construcción de tu proyecto
-                sh 'docker version'
+                
                 echo 'Construyendo...'
                 // Ejemplo de un paso de construcción real:
                 // sh 'npm install'
