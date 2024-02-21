@@ -14,10 +14,10 @@ pipeline {
                 // sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('Start containers') {
             steps {
                 // Aquí irían los pasos de prueba de tu proyecto
-                echo 'Probando...'
+                sh 'docker-compose up -d'
                 // Ejemplo de un paso de prueba real:
                 // sh 'npm test'
             }
