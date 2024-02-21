@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY ./AlertGlideConsumer .
 
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 ENV PORT 5151
 EXPOSE $PORT

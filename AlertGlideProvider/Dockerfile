@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY ./AlertGlideProvider .
 
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 RUN mkdir ./logs
 ENV PORT 8081
 EXPOSE $PORT
