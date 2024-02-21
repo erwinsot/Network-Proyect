@@ -9,6 +9,7 @@ pipeline {
                 sh 'docker version'
                 sh 'docker-compose version'
                 sh 'docker info'
+                sh 'make --version'
                 
                 // Ejemplo de un paso de construcción real:
                 // sh 'npm install'
