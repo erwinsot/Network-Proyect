@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Create image frontend') {
             steps {
-                sh 'docker build -t alertfrontsvelte:latest'
+                sh 'docker build -t alertfrontsvelte:latest .'
             }
         }
         stage('Create container frontend') {
