@@ -24,6 +24,21 @@ pipeline {
                 // sh 'npm test'
             }
         }
+        stage('Create image frontend') {
+            steps {
+                sh 'docker build -t alertfrontsvelte:latest'
+            }
+        }
+        stage('Create container frontend') {
+            steps {
+                sh 'docker run -d -p 5173:5173 alertfrontsvelte:latest'
+            }
+        }
+        stage ('Stop containers') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }
         stage('Deploy') {
             steps {
                 // Aquí irían los pasos de despliegue de tu proyecto
