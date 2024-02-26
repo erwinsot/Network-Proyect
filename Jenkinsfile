@@ -15,16 +15,7 @@ pipeline {
                 // sh 'npm install'
             }
         }
-
-        stage('Test') {
-            steps {
-                // Aquí irían los pasos de prueba de tu proyecto
-                echo 'Probando...'
-                sh 'cd AlertGlideConsumer && mvn test'                
-                // Ejemplo de un paso de prueba real:
-                // sh 'npm test'
-            }
-        }
+        
         stage('Start containers') {
             steps {
                 // Aquí irían los pasos de prueba de tu proyecto
@@ -42,6 +33,15 @@ pipeline {
         stage('Create container frontend') {
             steps {
                 sh 'docker run -d -p 5173:5173 alertfrontsvelte:latest'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Aquí irían los pasos de prueba de tu proyecto
+                echo 'Probando...'
+                sh 'cd AlertGlideConsumer && mvn test'                
+                // Ejemplo de un paso de prueba real:
+                // sh 'npm test'
             }
         }
         stage ('Stop containers') {
