@@ -3,7 +3,7 @@ FROM maven:3.8.4-openjdk-17-slim
 
 WORKDIR /app
 
-COPY ./AlertGlideProvider .
+COPY . .
 
 RUN mvn clean package -DskipTests
 RUN mkdir ./logs
